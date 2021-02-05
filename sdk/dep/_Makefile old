@@ -1,0 +1,324 @@
+BOILERPLATE_FSPATH=./../boilerplate
+
+include $(BOILERPLATE_FSPATH)/help.mk
+include $(BOILERPLATE_FSPATH)/os.mk
+include $(BOILERPLATE_FSPATH)/grpc.mk
+
+
+# grpc tools
+
+## All
+this-all: go-os-check
+
+	#$(MAKE) grpc-all-delete
+	$(MAKE) grpc-all-git-delete
+	$(MAKE) grpc-all-git-clone
+	$(MAKE) grpc-all-build
+	$(MAKE) grpc-which
+
+
+## Which
+grpc-which:
+
+	@echo
+	@echo -- Start: GRPC-which --
+	@echo
+
+
+	@echo
+	@echo -- envoy --
+	@which envoy
+	@envoy --version
+	@echo
+
+	@echo -- grpcli --
+	@which grpc_cli
+	@echo
+
+	@echo
+	@echo -- grpcui -- 
+	@which grpcui
+	@grpcui -version
+	@echo
+
+	@echo
+	@echo -- protoc --
+	@which protoc
+	protoc --version
+	@echo
+
+	@echo
+	@echo -- protoc-gen-go --
+	@which protoc-gen-go
+	@protoc-gen-go --version
+	@echo
+
+	@echo
+	@echo -- protoc-gen-grpc-gateway --
+	@which protoc-gen-grpc-gateway
+	
+	@echo
+	@echo -- protoc-gen-swagger --
+	@which protoc-gen-swagger
+
+	@echo
+	@echo -- protoc-gen-go-grpc --
+	@which protoc-gen-go-grpc
+
+	@echo
+
+	@echo
+	@echo -- End: GRPC-which --
+	@echo
+
+
+## All-git-clone
+grpc-all-git-clone:
+	# Envoy
+	# See: https://github.com/pomerium/pomerium/blob/master/Makefile
+	# this installs the getter into the GOBIN
+	#GO111MODULE=on go get $(LIB_ENVOY)/cmd/getenvoy@${LIB_ENVOY_GETENVOY_VERSION}
+
+	# GRPCUI
+	git clone https://$(LIB_GRPCUI_REPO) $(LIB_GRPCUI_REPO_FSPATH)
+
+	# GRPC
+	git clone https://$(LIB_GOGRPC_REPO) $(LIB_GOGRPC_REPO_FSPATH)
+	cd $(LIB_GOGRPC_REPO_FSPATH) && git checkout $(LIB_GOGRPC_REPO_VERSION)
+
+	# New golang protobuf compiler
+	git clone https://$(LIB_GO_REPO) $(LIB_GO_REPO_FSPATH)
+	cd $(LIB_GO_REPO_FSPATH) && git checkout $(LIB_GO_REPO_VERSION)
+
+	# OLD golang protobuf compiler
+	# git clone https://$(LIB_GOOLD_REPO_REPO) $(LIB_GOOLD_REPO_REPO_FSPATH)
+
+	# GRPC Gateway compiler
+	#git clone https://$(LIB_GRPC_GATEWAY_REPO) $(LIB_GRPC_GATEWAY_REPO_FSPATH)
+	#cd $(LIB_GRPC_GATEWAY_REPO_FSPATH) && git checkout $(LIB_GRPC_GATEWAY_REPO_VERSION)
+	
+
+## All-git-delete
+grpc-all-git-delete:
+	#rm -rf $(LIB_ENVOY_REPO_FSPATH)
+	rm -rf $(LIB_GRPCUI_REPO_FSPATH)
+	rm -rf $(LIB_GOGRPC_REPO_FSPATH)
+	rm -rf $(LIB_GO_REPO_FSPATH)
+	#rm -rf $(LIB_GOOLD_REPO_REPO_FSPATH)
+	#rm -rf $(LIB_GRPC_GATEWAY_REPO_FSPATH)
+
+grpc-all-vscode-add:
+	#code --add $(LIB_ENVOY_REPO_FSPATH) --reuse-window
+	code --add $(LIB_GRPCUI_REPO_FSPATH) --reuse-window
+	code --add $(LIB_GOGRPC_REPO_FSPATH) --reuse-window
+	code --add $(LIB_GO_REPO_FSPATH) --reuse-window
+	#code --add $(LIB_GOOLD_REPO_REPO_FSPATH) --reuse-window
+	#code --add $(LIB_GRPC_GATEWAY_REPO_FSPATH) --reuse-window
+
+## All-build
+grpc-all-build: 
+	#$(MAKE) grpc-envoy-build 
+	$(MAKE) grpc-go-build 
+	#$(MAKE) grpc-grpcui-build 
+	#$(MAKE) grpc-grpcli-build 
+	$(MAKE) grpc-protoc-build
+
+## All-delete
+grpc-all-delete: 
+	#$(MAKE) grpc-envoy-delete 
+	$(MAKE) grpc-go-delete 
+	#$(MAKE) grpc-grpcui-delete 
+	#$(MAKE) grpc-grpcli-delete 
+	$(MAKE) grpc-protoc-delete
+
+
+### ENVOY
+
+## Envoy-build
+grpc-envoy-build:
+	@echo
+	@echo -- Start: Envoy build --
+	@echo
+
+	# this pulls down envoy to /usr/local/bin
+	# getenvoy is undefined
+	# getenvoy fetch $(LIB_ENVOY_VERSION)
+	# copy it to GOBIN.
+	# cp -f /usr/local/bin/envoy $(GOPATH)/bin/envoy
+
+	@echo
+	@echo -- End: Envoy build --
+	@echo
+
+grpc-envoy-delete:
+	@echo
+	@echo -- Start: Envoy Delete --
+	@echo
+
+	rm -rf $(GOPATH)/bin/envoy
+
+
+
+### GRPC CLI
+grpc-grpcli-build:
+
+	@echo
+	@echo -- Start: grpccli build --
+	@echo
+
+	# grpc_cli tool to call the GRPC from command line, and do basic smoke tests
+	# REPO: https://github.com/grpc/grpc/blob/master/doc/command_line_tool.md
+	# Examples: https://medium.com/@at_ishikawa/use-grpc-cli-to-request-a-grpc-server-37219b33c94b
+	# Is works by using Reflection: https://github.com/grpc/grpc-go/blob/master/Documentation/server-reflection-tutorial.md
+	brew install grpc
+
+	@echo
+	@echo -- End: grpccli build --
+	@echo
+
+grpc-grpcli-delete:
+	@echo
+	@echo -- Start: GRPCLI Delete --
+	@echo
+
+	# grpc_cli
+	brew uninstall grpc
+
+### GRPCUI
+grpc-grpcui-build:
+	@echo
+	@echo -- Start: GRPCUI build --
+	@echo
+
+	# instal to GOBIN
+	cd $(LIB_GRPCUI_REPO_FSPATH)/cmd/grpcui && go install .
+
+	@echo
+	@echo -- End: GRPCUI build --
+	@echo
+
+grpc-grpcui-delete:
+	@echo
+	@echo -- Start: GRPCUI Delete --
+	@echo
+
+	rm -f $(GOPATH)/bin/grpcui
+
+
+### Protoc basis
+
+# Download and put into GOPATH also
+
+grpc-protoc-build:
+
+	# http://google.github.io/proto-lens/installing-protoc.html
+	@echo
+	@echo -- protoc --
+
+
+ifeq ($(GO_OS), windows)
+	@echo Windows detected
+
+else
+	
+ifeq ($(GO_OS), linux)
+	@echo Linux detected
+
+else
+	@echo Darwin detected
+	brew install protobuf@$(LIB_PROTOC_VERSION)
+endif
+endif
+	
+grpc-protoc-delete:
+
+
+ifeq ($(GO_OS), windows)
+	@echo Windows detected
+
+else
+	
+ifeq ($(GO_OS), linux)
+	@echo Linux detected
+
+else
+	@echo Darwin detected
+	brew uninstall protobuf
+endif
+endif
+	
+
+
+### GO Protobuf generators 
+
+grpc-go-build:
+	@echo
+	@echo -- Start: Golang PB build --
+	@echo
+
+	# Golang PB
+	cd $(LIB_GO_REPO_FSPATH)/cmd/protoc-gen-go && go install .
+
+	# Golang GRPC
+	cd $(LIB_GOGRPC_REPO_FSPATH)/cmd/protoc-gen-go-grpc && go install .
+
+	# Golang GRPC Gatway
+	#cd $(LIB_GRPC_GATEWAY_REPO_FSPATH)/protoc-gen-grpc-gateway && go install .
+
+	# Golang Swagger
+	#cd $(LIB_GRPC_GATEWAY_REPO_FSPATH)/protoc-gen-swagger && go install .
+
+	# Dart GRPC and Protobuf
+	# NOT git cloned, but installed by Dart itself for Latest. If we hit probs then we can version it.
+	# Assumes dart installed 
+	# pub global activate protoc_plugin
+	# this way we don't need separate dart installation, other than what's bundled with flutter
+	flutter pub global activate protoc_plugin
+
+	@echo
+	@echo -- End: Golang PB build --
+	@echo
+
+grpc-go-delete:
+	@echo
+	@echo -- Start: Golang PB Delete --
+	@echo
+
+	rm -f $(GOPATH)/bin/protoc-gen-go
+	rm -f $(GOPATH)/bin/protoc-gen-go-grpc
+	rm -f $(GOPATH)/bin/protoc-gen-grpc-gateway
+	rm -f $(GOPATH)/bin/protoc-gen-swagger
+	
+	
+
+
+
+### Old GO Protobuf generators
+	
+grpc-pbold-build:
+	@echo
+	@echo -- Start: Golang PB-OLD build --
+	@echo
+
+	cd $(LIB_GOOLD_REPO_REPO_FSPATH)/protoc-gen-go && go install .
+
+
+	@echo
+	@echo -- End: Golang PB-OLD build --
+	@echo
+
+grpc-pbold-delete:
+	@echo
+	@echo -- Start: Golang PB-OLD Delete --
+	@echo
+
+	rm -f $(GOPATH)/bin/protoc-gen-go
+
+
+export PROTO_SOURCE_DIR="proto"
+export PROTO_SOURCE_FILE="sphynx.proto"
+grpc-gen:
+	@echo Generating Protos
+	# Generate the gRPC Go interfaces using NEW compiler
+
+	protoc ${PROTO_SOURCE_DIR}/${PROTO_SOURCE_FILE} --go-grpc_out=proto --go_out=proto

@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+    branches:
+      - "*"
+
+# Environment variables available to all jobs and steps in this workflow
+env:
+  GKE_PROJECT: ${{ secrets.GKE_PROJECT }}
+  GKE_EMAIL: ${{ secrets.GKE_EMAIL }}
+  GITHUB_SHA: ${{ github.sha }}
+  GITHUB_REF: ${{ github.ref }}
+  GKE_ZONE: ${{ secrets.GKE_ZONE }}
+  IMAGE: maintemplate
+  PROJECT: maintemplate
+  REGISTRY_HOSTNAME: gcr.io
+  DEPLOYMENT_NAME: maintemplate
+  RELEASE_CHANNEL: ci
+  FLUTTER_CHANNEL: beta
+  URL: amplify-cms.org
+  LOCALES: '[\"en\",\"fr\",\"es\",\"it\",\"de\",\"ur\"]'
+  GKE_KEYRING_NAME: ${{ secrets.GKE_KEYRING_NAME }}
+  GKE_KEYNAME: ${{ secrets.GKE_KEYNAME }}
+
+jobs:
+  setup-build-publish-deploy:
+    name: CI - Setup, Build, Publish, and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "beta"
+
+      - run: flutter pub get
+        working-directory: maintemplate/client/
+      - run: flutter config --enable-web
+        working-directory: maintemplate/client/
+      # build Flutter web version
+      - run: flutter build web
+        working-directory: maintemplate/client/
+
+    

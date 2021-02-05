@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# Dev build
+build
+
+# Blob file
+**/blob.go
+
+**/bindata.go
