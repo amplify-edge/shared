@@ -1,0 +1,7 @@
+module github.com/amplify-cms/shared/tool/bs-embed/ex/maintemplate
+
+go 1.15
+
+replace github.com/amplify-cms/shared/tool/bs-embed/ex/mod01 => ../mod01
+
+require github.com/amplify-cms/shared/tool/bs-embed/ex/mod01 v0.0.0-00010101000000-000000000000

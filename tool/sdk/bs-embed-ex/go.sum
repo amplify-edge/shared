@@ -1,0 +1,4 @@
+github.com/amplify-cms/dev v0.0.0-20200930115556-0ad43f6046ee h1:TQfEYK/3nWjKpvL4JrVNEmQq5u9rQ064zFn5F7eaJvQ=
+github.com/amplify-cms/shared v0.0.0-20200930131124-37571b3ba873 h1:YNwjRRwcKzvrNMAAMUoiRfkQ9A49SNUsHTcfq1laAAA=
+github.com/gorilla/mux v1.8.0 h1:i40aqfkR1h2SlN9hojwV5ZA91wcXFOvkdNIeFDP5koI=
+github.com/gorilla/mux v1.8.0/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
