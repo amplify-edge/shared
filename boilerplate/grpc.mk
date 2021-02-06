@@ -31,9 +31,9 @@ LIB_GO_REPO_FSPATH=				$(GOPATH)/src/$(LIB_GO_REPO)
 LIB_GO_REPO_VERSION= 			v1.25.0
 
 # protoc-gen-cobra
-LIB_GOGRPCCOBRA_REPO=				go.amplifyedge.org/protoc-gen-cobra
+LIB_GOGRPCCOBRA_REPO=				github.com/amplify-edge/protoc-gen-cobra
 LIB_GOGRPCCOBRA_REPO_FSPATH=		$(GOPATH)/src/$(LIB_GOGRPCCOBRA_REPO)
-#LIB_GOGRPCCOBRA_REPO_VERSION= 		v1.25.0
+LIB_GOGRPCCOBRA_REPO_VERSION= 		v0.4.0
 
 ## NEW ones
 # - https://github.com/mwitkow/go-proto-validators
