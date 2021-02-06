@@ -15,7 +15,7 @@ import (
 	"time"
 
 	"github.com/emirpasic/gods/maps/linkedhashmap"
-	"github.com/amplify-cms/core-runtime/tool/googlesheet/services/config"
+	"go.amplifyedge.org/shared-v2/tool/googlesheet/services/config"
 	"github.com/pkg/errors"
 
 	"github.com/tidwall/pretty"

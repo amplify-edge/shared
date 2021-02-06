@@ -1,4 +1,4 @@
-module github.com/amplify-cms/shared/servers/booty
+module go.amplifyedge.org/shared-v2/servers/booty
 
 go 1.15
 

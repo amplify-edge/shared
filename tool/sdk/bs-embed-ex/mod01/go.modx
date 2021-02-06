@@ -1,3 +1,0 @@
-module github.com/amplify-cms/shared/tool/bs-embed/ex/mod01
-
-go 1.15

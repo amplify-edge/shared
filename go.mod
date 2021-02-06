@@ -1,4 +1,4 @@
-module github.com/amplify-cms/shared
+module go.amplifyedge.org/shared-v2
 
 go 1.15
 

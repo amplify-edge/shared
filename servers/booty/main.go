@@ -1,6 +1,6 @@
 package main
 
-import "github.com/amplify-cms/shared/servers/booty/cmd"
+import "go.amplifyedge.org/shared-v2/servers/booty/cmd"
 
 func main() {
 	cmd.Execute()

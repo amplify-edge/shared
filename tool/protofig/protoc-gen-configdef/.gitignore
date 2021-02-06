@@ -1,6 +1,0 @@
-testoutput/*.msgnames.go
-vendor
-.idea
-.vscode
-protoc-gen-msgnames
-builds

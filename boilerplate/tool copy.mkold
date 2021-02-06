@@ -3,7 +3,7 @@
 
 
 # path to tool source code.
-TOOL_LIB=github.com/amplify-cms/packages
+TOOL_LIB=go.amplifyedge.org/shared-v2
 TOOL_LIB_FSPATH=$(GOPATH)/src/$(TOOL_LIB)
 
 # path to binaries
