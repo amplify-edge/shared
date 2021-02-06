@@ -365,7 +365,7 @@ ifeq ($(GO_OS), linux)
 
 else
 	@echo Darwin detected
-	brew install protobuf@$(LIB_PROTOC_VERSION)
+	brew install protobuf
 endif
 endif
 	
