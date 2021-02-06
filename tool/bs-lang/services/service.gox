@@ -4,8 +4,8 @@ import (
 	"log"
 	"sync"
 
-	"github.com/amplify-cms/packages/tool/googlesheet/services"
-	"github.com/amplify-cms/packages/tool/googlesheet/services/config"
+	"go.amplifyedge.org/shared-v2/tool/googlesheet/services"
+	"go.amplifyedge.org/shared-v2/tool/googlesheet/services/config"
 )
 
 // Service service

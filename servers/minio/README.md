@@ -26,7 +26,7 @@ We can also then use Yurt which runs Nomad and Consul, to manage all these binar
 Or users to manage their own 3 servers.
 https://github.com/ncabatoff/yurt
 
-I got it wrapped in github.com/amplify-cms/shared/sdk ages ago..
+I got it wrapped in go.amplifyedge.org/shared-v2/sdk ages ago..
 
 
 

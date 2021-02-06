@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/amplify-cms/shared/tool/bs-crypt/lib"
+	"go.amplifyedge.org/shared-v2/tool/bs-crypt/lib"
 	"github.com/stretchr/testify/require"
 )
 

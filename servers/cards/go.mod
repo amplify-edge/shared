@@ -1,4 +1,4 @@
-module github.com/amplify-cms/shared/servers/cards
+module go.amplifyedge.org/shared-v2/servers/cards
 
 go 1.15
 

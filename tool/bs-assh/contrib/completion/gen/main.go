@@ -1,4 +1,4 @@
-package main // import "github.com/getcouragenow/shared/tool/bs-assh/contrib/completion/gen"
+package main // import "go.amplifyedge.org/shared-v2/tool/bs-assh/contrib/completion/gen"
 
 import (
 	"log"

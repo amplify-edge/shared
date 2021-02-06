@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/getcouragenow/shared/tool/bs-ssh/cmd"
+	"go.amplifyedge.org/shared-v2/tool/bs-ssh/cmd"
 )
 
 func main() {

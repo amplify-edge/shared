@@ -5,8 +5,8 @@ import (
 	"log"
 	"sync"
 
-	"github.com/amplify-cms/core-runtime/tool/googlesheet/services"
-	"github.com/amplify-cms/core-runtime/tool/googlesheet/services/config"
+	"go.amplifyedge.org/shared-v2/tool/googlesheet/services"
+	"go.amplifyedge.org/shared-v2/tool/googlesheet/services/config"
 )
 
 func main() {

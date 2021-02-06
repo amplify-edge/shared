@@ -1,6 +1,6 @@
 package main
 
-import "github.com/amplify-cms/packages/tool/bs-lang/cmd"
+import "go.amplifyedge.org/shared-v2/tool/bs-lang/cmd"
 
 func main() {
 	cmd.Execute()

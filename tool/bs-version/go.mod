@@ -1,4 +1,4 @@
-module github.com/getcouragenow/shared/tool/bs-version
+module go.amplifyedge.org/shared-v2/tool/bs-version
 
 go 1.15
 

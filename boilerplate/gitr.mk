@@ -124,7 +124,7 @@ gitr-fork-setup:
 	git remote add upstream git@$(GITR_SERVER)-$(GITR_USER):$(GITR_ORG_UPSTREAM)/$(GITR_REPO_NAME)
 	@echo
 
-GITR_SHARED_URL=https://github.com/amplify-cms/sys
+GITR_SHARED_URL=https://go.amplifyedge.org/sys-v2
 gitr-fork-submod-setup:
 	# THis is to get shared into a repo as a sumodule. SO that its easy to do CI
 	# DONT do this in SHared !! Will be crazy recursive

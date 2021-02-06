@@ -1,4 +1,4 @@
-module github.com/amplify-cms/packages/tool/bs-lang
+module go.amplifyedge.org/shared-v2/tool/bs-lang
 
 go 1.15
 

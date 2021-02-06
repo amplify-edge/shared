@@ -1,3 +1,3 @@
-module github.com/amplify-cms/shared/tool/sdk/bs-embed
+module go.amplifyedge.org/shared-v2/tool/sdk/bs-embed
 
 go 1.15

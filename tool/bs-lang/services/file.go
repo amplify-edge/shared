@@ -7,8 +7,8 @@ import (
 	"strings"
 
 	"github.com/emirpasic/gods/maps/linkedhashmap"
-	"github.com/amplify-cms/packages/tool/bs-lang/services/config"
-	"github.com/amplify-cms/packages/tool/bs-lang/utils"
+	"go.amplifyedge.org/shared-v2/tool/bs-lang/services/config"
+	"go.amplifyedge.org/shared-v2/tool/bs-lang/utils"
 
 	"github.com/tidwall/pretty"
 )

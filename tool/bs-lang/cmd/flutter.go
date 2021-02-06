@@ -3,7 +3,7 @@ package cmd
 import (
 	"strings"
 
-	"github.com/amplify-cms/packages/tool/bs-lang/services"
+	"go.amplifyedge.org/shared-v2/tool/bs-lang/services"
 	"github.com/spf13/cobra"
 )
 

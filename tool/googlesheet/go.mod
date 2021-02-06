@@ -1,10 +1,9 @@
-module github.com/amplify-cms/core-runtime/tool/googlesheet
+module go.amplifyedge.org/shared-v2/tool/googlesheet
 
 go 1.13
 
 require (
 	github.com/emirpasic/gods v1.12.0
-	github.com/magefile/mage v1.9.0
 	github.com/pkg/errors v0.8.1
 	github.com/spf13/viper v1.5.0
 	github.com/stretchr/testify v1.4.0 // indirect

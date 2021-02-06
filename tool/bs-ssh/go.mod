@@ -1,4 +1,4 @@
-module github.com/getcouragenow/shared/tool/bs-ssh
+module go.amplifyedge.org/shared-v2/tool/bs-ssh
 
 go 1.15
 
