@@ -38,7 +38,8 @@ this-build-clean:
 	rm -f ${GO_BUILD_OUT_FSPATH}
 
 this-test:
-	go test -v ./...
+	# go test -v ./...
+	go test -v ./services
 
 	@echo TODO - call flutter tests !!
 
