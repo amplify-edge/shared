@@ -3,8 +3,8 @@ package cmd
 import (
 	"strings"
 
-	"go.amplifyedge.org/shared-v2/tool/bs-lang/services"
 	"github.com/spf13/cobra"
+	"go.amplifyedge.org/shared-v2/tool/bs-lang/services"
 )
 
 var (
@@ -30,7 +30,7 @@ var flutterCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.AddCommand(flutterCmd)
+	RootCmd.AddCommand(flutterCmd)
 	dir = flutterCmd.Flags().StringP("dir", "d", ".", "Directory where to out and look for files.")
 	template = flutterCmd.Flags().StringP("template", "t", "", "Template file path to generate multi languages files.")
 	prefixName = flutterCmd.Flags().StringP("prefix", "p", "", "The prefix to add for each file generated.")
