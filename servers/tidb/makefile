@@ -15,5 +15,6 @@ dep:
 dep-open:
 	open /Users/apple/.tiup/
 run-play:
+	# will bring down everything needed 
 	tiup playground
 

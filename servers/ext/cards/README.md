@@ -1,6 +1,10 @@
 # cards
 
-The current GUI system is a basis but we need to start building GUI on top is a much fater way.
+Cards is a standard way to describe GUI Forms that are also able to pist data back.
+
+There are also many other approaches too, like describing the GUI layout with JSON, but htey generally dont include a Postback.
+
+We dont want to surface our Gsuite stuff via this, because those things are designed to be backed in to the compiled app and then called with params to contextualise the tenant, user, context aspects. One to one mapping to the golang behind it.
 
 Cards allow the Server to drive the GUI
 - Devs and Users can quickly make a GUI.

@@ -5,6 +5,7 @@ FLU_FSPATH=Flutter-AdaptiveCards/example
 GO_BOT_FSPATH=teams-bot-example
 
 print:
+	@echo GO_BOT_FSPATH: $(GO_BOT_FSPATH)
 	
 
 ### DEP
@@ -33,15 +34,44 @@ flu-print:
 flu-run-web:
 	# works . Video also...
 	cd $(FLU_FSPATH) && flutter run -d chrome
+flu-run-web-release:
+	# works . Video also...
+	cd $(FLU_FSPATH) && flutter run -d chrome --release
+
 flu-run-desktop:
 	# works
+	# need to flush pof file sometimes
+	cd $(FLU_FSPATH) && rm macos/Podfile
 	cd $(FLU_FSPATH) && flutter run -d macOS
+flu-run-desktop-release:
+	# needed because so slow with debug. was fast a month 
+	cd $(FLU_FSPATH) && flutter run -d macOS --release
+
+
 flu-run-mobile-init:
 	# edit profile in xcode
 	open $(FLU_FSPATH)/ios/Runner.xcodeproj
 flu-run-mobile:
 	# works
 	cd $(FLU_FSPATH) && flutter run -d bdf90dc799709a013a25d0fc2df80e441df026f3
+flu-run-mobile-release:
+	# works
+	cd $(FLU_FSPATH) && flutter run -d bdf90dc799709a013a25d0fc2df80e441df026f3 --release
+flu-run-mobile-build:
+	# change to ios 11 in xcode for runner and pods
+	cd $(FLU_FSPATH)/ios && pod install
+	#cd $(FLU_SAMPLE_FSPATH) && flutter build ios
 
+	cd $(FLU_FSPATH) && flutter build ios --release --no-codesign
+
+
+
+go-db:
+	# get ent for db
+	go get entgo.io/ent/cmd/ent
+
+	# get tidb, so we dont need docker.
+	cd ./../tidb && $(MAKE) run-play
 go-run:
-	cd $(GO_BOT_FSPATH) && go run .
+	cp dev.yml $(GO_BOT_FSPATH)/configs
+	cd $(GO_BOT_FSPATH) && $(MAKE) run
