@@ -1,6 +1,8 @@
 # google
 
-Some of our stuff needs to store and access google Storgae and Google PUB Sub
+For global we use google Storgae and Google PUB Sub, so we dont have to run our own fully HA.
+
+TIDB we have to run, unless we start to use Bigquery
 
 Its a weird mixture of dev, build and runtime tools that need it.
 
