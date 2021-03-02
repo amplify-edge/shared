@@ -1,6 +1,5 @@
 github.com/CatchZeng/google-translator v0.0.2 h1:mNGLbQSMd5H9pzQGFAcpDwuNQR7Oja8zTXcE4T2cUzk=
 github.com/CatchZeng/google-translator v0.0.2/go.mod h1:A+qMLYD8VJbQJhuTK7Ag5x/n8/L78hzmwvxUbuMFcSU=
-github.com/CatchZeng/gutils v0.0.3 h1:jFiUixFWOz+pMCe+Y3n9vzkIWh0vnf6/XX97HVyFEF0=
 github.com/CatchZeng/gutils v0.0.3/go.mod h1:Uz8tJTZDM9XWGTFQt3oIYs+zY3/2fOy0TVQaQTgPtWg=
 github.com/CatchZeng/gutils v0.1.5 h1:Z9RefsbMysv7vt+Km4tpA3+SMN4hXtgSReMrdG45Nco=
 github.com/CatchZeng/gutils v0.1.5/go.mod h1:Uz8tJTZDM9XWGTFQt3oIYs+zY3/2fOy0TVQaQTgPtWg=
@@ -12,7 +11,6 @@ github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/kr/text v0.1.0/go.mod h1:4Jbv+DJW3UT/LiOwJeYQe1efqtUx/iVham/4vfdArNI=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
-github.com/robertkrimen/otto v0.0.0-20191219234010-c382bd3c16ff h1:+6NUiITWwE5q1KO6SAfUX918c+Tab0+tGAM/mtdlUyA=
 github.com/robertkrimen/otto v0.0.0-20191219234010-c382bd3c16ff/go.mod h1:xvqspoSXJTIpemEonrMDFq6XzwHYYgToXWj5eRX1OtY=
 github.com/robertkrimen/otto v0.0.0-20200922221731-ef014fd054ac h1:kYPjbEN6YPYWWHI6ky1J813KzIq/8+Wg4TO4xU7A/KU=
 github.com/robertkrimen/otto v0.0.0-20200922221731-ef014fd054ac/go.mod h1:xvqspoSXJTIpemEonrMDFq6XzwHYYgToXWj5eRX1OtY=
