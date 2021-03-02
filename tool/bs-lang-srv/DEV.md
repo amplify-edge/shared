@@ -60,9 +60,9 @@ Issue: https://github.com/amplify-edge/shared/issues/13
 
 **stage 1**
 bs-lang needs to work right now.
+- do all the code in shared/tool/bs-lang. Later will split the Service to sys-share, and make a GRPC API.
 - just do the google sheets store and google translate API for now. That gets it working and not costing us a fortune.
 - can all run locally, but use a global gsheets. The google service key can just be an env variable that we share with ech other for now.
-
 
 
 ## lib
