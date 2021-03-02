@@ -60,7 +60,7 @@ Issue: https://github.com/amplify-edge/shared/issues/13
 
 **stage 1**
 bs-lang needs to work right now.
-- do all the code in shared/tool/bs-lang. Later will split the Service to sys-share, and make a GRPC API.
+- do all the code in shared/tool/bs-lang-srv. Later will split the Service to sys-share, and make a GRPC API.
 - just do the google sheets store and google translate API for now. That gets it working and not costing us a fortune.
 - can all run locally, but use a global gsheets. The google service key can just be an env variable that we share with ech other for now.
 
@@ -79,4 +79,17 @@ https://github.com/takakd/translation-api
 - DEMO: https://retranslate-demo.herokuapp.com/
 - grpc api
 - aws and google
-- deployments local and cloud. uses envoy
+- deployments local and cloud. uses envoy.
+
+
+**sheets**
+
+https://developers.google.com/sheets/api/quickstart/go
+go get -u google.golang.org/api/sheets/v4
+go get -u golang.org/x/oauth2/google
+
+https://github.com/rr250/jobpost-plugin/blob/master/server/google.go
+- drive and sheets API. Need both.
+- designed to maintain mailing lsit subscriptions.
+
+
