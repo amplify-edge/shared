@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/bregydoc/gtranslate"
+	"go.amplifyedge.org/shared-v2/tool/bs-lang-srv/x/bregydoc/gtranslate"
 )
 
 func main() {
