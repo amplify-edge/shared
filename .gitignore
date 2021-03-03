@@ -3,3 +3,5 @@ vendor
 .vscode
 .nvimlog
 includes
+/tool/bs-lang-srv/x/bregydoc/
+/tool/bs-lang-srv/x/catchzeng/

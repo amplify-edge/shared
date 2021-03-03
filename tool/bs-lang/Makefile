@@ -1,5 +1,5 @@
 # Don't use too many makefiles variables it's confusing.
-BOILERPLATE_FSPATH=../includes
+BOILERPLATE_FSPATH=../../includes
 
 include $(BOILERPLATE_FSPATH)/help.mk
 

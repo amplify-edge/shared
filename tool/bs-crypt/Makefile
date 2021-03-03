@@ -10,4 +10,5 @@ build-clean:
 
 test:
 	$(shell export BS_CRYPT_PASSWORD=blehbleh2341298astk)
-	go test -v ./lib
+# TODO
+#	go test -v ./lib
