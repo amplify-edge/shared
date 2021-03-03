@@ -1,4 +1,4 @@
-name: CI - shared
+name: CI
 
 on:
   push:
@@ -10,19 +10,19 @@ on:
 
 jobs:
   all:
-    name: CI - shared
-   
+    name: CI
+
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        go-version: [1.15.2]
-        target: ["this-ci-check",]
+        os: [ ubuntu-latest, macos-latest ]
+        go-version: [ 1.16.0 ]
+        target: [ "all", ]
 
     runs-on: ${{ matrix.os }}
 
     steps:
-      - name: Set up Go 
+      - name: Set up Go
         uses: actions/setup-go@v2.1.3
         with:
           go-version: ${{ matrix.go-version }}

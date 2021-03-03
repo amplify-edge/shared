@@ -1,111 +1,78 @@
-
-BOILERPLATE_FSPATH=../boilerplate
+# Don't use too many makefiles variables it's confusing.
+# Build is not install
+# Just strive to be as minimal as you can, a.k.a. no external dependencies (external build tools, includes, etc please).
+BOILERPLATE_FSPATH=../includes
 
 include $(BOILERPLATE_FSPATH)/help.mk
-include $(BOILERPLATE_FSPATH)/gitr.mk
-include $(BOILERPLATE_FSPATH)/go.mk
-include $(BOILERPLATE_FSPATH)/tool.mk
 
-this-all: this-print this-build this-test
+all: print build test
 
 ## Print all settings
-this-print:
+print:
 	@echo tools
 
 ## Build all tools
-this-build:
-
+build:
 	@echo -- TOOLS - BUILD ALL: start --
 
+	@echo Crypt
+	cd ./bs-crypt && $(MAKE) build
+
 	@echo Dummy
-	cd ./$(TOOL_DUMMY_BIN_NAME) && $(MAKE) this-build
+	cd ./bs-dummy && $(MAKE) build
 
 	@echo Lang
-	cd ./$(TOOL_LANG_BIN_NAME) && $(MAKE) this-build
+	cd ./bs-lang && $(MAKE) build
 
 	@echo Hover
-	cd ./$(TOOL_HOVER_BIN_NAME) && $(MAKE) this-build
+	cd ./bs-hover && $(MAKE) build
 
 	@echo Hugo
-	cd ./$(TOOL_HUGO_BIN_NAME) && $(MAKE) this-build
-
-	# The things below do not work yet and are not going to be needed for v2
-
-	#@echo protoc-gen-configdef
-	#cd ./protofig/protoc-gen-configdef && $(MAKE) this-build
-
-	#@echo protoc-gen-map
-	#cd ./protodb/protoc-gen-map && $(MAKE) this-build
-
-	#@echo Protofig
-	#cd ./protofig && $(MAKE) this-build
-
-	#@echo Protodb
-	#cd ./protodb && $(MAKE) this-build
-
-	# -- PLUS ALL OTHER TOOLS !!
+	cd ./bs-hugo && $(MAKE) build
 
 	@echo -- TOOLS - BUILD ALL: finish --
 
 ## Clean the build
-this-build-clean:
-
+build-clean:
 	@echo -- TOOLS - CLEAN ALL: start --
 
 	@echo Dummy
-	cd ./$(TOOL_DUMMY_BIN_NAME) && $(MAKE) this-build-clean
+	cd ./bs-dummy && $(MAKE) build-clean
+
+	@echo Crypt
+	cd ./bs-crypt && $(MAKE) build-clean
 
 	@echo Lang
-	cd ./$(TOOL_LANG_BIN_NAME) && $(MAKE) this-build-clean
+	cd ./bs-lang && $(MAKE) build-clean
 
 	@echo Hover
-	cd ./$(TOOL_HOVER_BIN_NAME) && $(MAKE) this-build-clean
+	cd ./bs-hover && $(MAKE) build-clean
 
 	@echo Hugo
-	cd ./$(TOOL_HUGO_BIN_NAME) && $(MAKE) this-build-clean
-
-	# The things below do not work yet and are not going to be needed for v2
-
-	#@echo protoc-gen-configdef
-	#cd ./protofig/protoc-gen-configdef && $(MAKE) this-build
-
-	#@echo protoc-gen-map
-	#cd ./protodb/protoc-gen-map && $(MAKE) this-build
-
-	#@echo Protofig
-	#cd ./protofig && $(MAKE) this-build
-
-	#@echo Protodb
-	#cd ./protodb && $(MAKE) this-build
+	cd ./bs-hugo && $(MAKE) build-clean
 
 	# -- PLUS ALL OTHER TOOLS !!
 
 	@echo -- TOOLS - CLEAN ALL: finish --
 
 ## Test all tools
-this-test:
+test:
 	@echo -- TOOLS - TEST ALL: start --
 
 	@echo Dummy
-	cd ./$(TOOL_DUMMY_BIN_NAME) && $(MAKE) this-test
+	cd ./bs-dummy && $(MAKE) test
+
+	@echo Crypt
+	cd ./bs-crypt && $(MAKE) test
 
 	@echo Lang
-	cd ./$(TOOL_LANG_BIN_NAME) && $(MAKE) this-test
+	cd ./bs-lang && $(MAKE) test
 
 	@echo Hover
-	cd ./$(TOOL_HOVER_BIN_NAME) && $(MAKE) this-test
+	cd ./bs-hover && $(MAKE) test
 
 	@echo Hugo
-	cd ./$(TOOL_HUGO_BIN_NAME) && $(MAKE) this-test
-
-	# The things below do not work yet and are not going to be needed for v2
-
-	#@echo Protofig
-	#cd ./protofig && $(MAKE) this-test
-
-	#@echo Protodb
-	#cd ./protodb && $(MAKE) this-test
-	# -- PLUS ALL OTHER TOOLS !!
+	cd ./bs-hugo && $(MAKE) test
 
 	@echo -- TOOLS - TEST ALL: finish --
 

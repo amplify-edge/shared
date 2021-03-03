@@ -1,39 +1,20 @@
 # includes
-BOILERPLATE_FSPATH=./../../boilerplate
+SHARED_FSPATH=./../../includes
 
-include $(BOILERPLATE_FSPATH)/help.mk
-include $(BOILERPLATE_FSPATH)/tool.mk
-include $(BOILERPLATE_FSPATH)/go.mk
-
-# go build
-override GO_FSPATH=${PWD}
-
-override GO_BIN_NAME=${TOOL_DUMMY_BIN_NAME}
-override GO_BUILD_OUT_FSPATH:=${TOOL_DUMMY_BIN_FSPATH}
-
-override GO_BUILD_OUT_ALL_FSPATH=${PWD}/assets
-
-
+include $(SHARED_FSPATH)/help.mk
 
 # Print
-this-print:
+print:
 	@echo
 	@echo -- TOOL Dummy --
-
-	@echo GO_FSPATH 				${GO_FSPATH}
-	@echo TOOL_DUMMY_BIN_NAME 		${TOOL_DUMMY_BIN_NAME}
-	@echo GO_BUILD_OUT_FSPATH: 		${GO_BUILD_OUT_FSPATH}
-	@echo GO_BUILD_OUT_ALL_FSPATH: 	${GO_BUILD_OUT_ALL_FSPATH}
-
 	@echo
 
 ## Build
-this-build: this-build-clean
-	$(MAKE) go-build
-	which ${TOOL_DUMMY_BIN_NAME}
+build:
+	go build -o bs-dummy .
 
-this-build-clean:
-	rm -rf ${TOOL_DUMMY_BIN_NAME}
+clean:
+	rm -rf bs-dummy
 
-this-test:
-	@echo TODO !
+test:
+	@echo "TODO"
