@@ -188,7 +188,7 @@ endif
 # 1. make lang-dep => ensure you have the i18n tool
 # 2. make lang-gen-flu => generate all files
 
-FLU_LANG_LOCALES = en,fr,es,de,it,ur
+FLU_LANG_LOCALES = en,fr,es,de,it,ur,tr
 
 FLU_LANG_DIR = $(FLU_LIB_FSPATH)/i18n
 FLU_LANG_LOCALIZATION_DIR = $(FLU_LIB_FSPATH)/lib/core/i18n
@@ -249,9 +249,6 @@ flu-gen-lang:
 ## Generates dart code out of arb files
 flu-gen-lang-dart:
 	cd $(FLU_LIB_FSPATH) && flutter pub run intl_translation:generate_from_arb --output-dir=$(FLU_LANG_GENERATED_DIR) $(FLU_LANG_LOCALIZATION_DIR)/translations.dart $(FLU_LANG_DIR)/*.arb
-
-
-
 
 ### ASTI ONLY
 

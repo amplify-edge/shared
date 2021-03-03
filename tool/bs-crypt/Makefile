@@ -1,4 +1,4 @@
 .PHONY: all
 
 all:
-	@go install
+	@go build -o bs-crypt .
