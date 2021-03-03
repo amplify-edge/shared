@@ -1,0 +1,17 @@
+env: dev
+db:
+  uri: "host= port= user= dbname= password= sslmode=disable"
+  driver: mysql
+server:
+  port: 8000
+  host: "0.0.0.0"
+auth:
+  exp: 72 # hours
+  secret: secret-key
+job: 
+  sampleJobPeriod: 20 # seconds
+  projectNotificationPeriod: 300 # seconds
+teams:
+  appID: ""
+  appPassword: ""
+  port: 3978
