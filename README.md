@@ -1,3 +1,5 @@
+[![CI](https://github.com/amplify-edge/shared/actions/workflows/ci-shared.yml/badge.svg)](https://github.com/amplify-edge/shared/actions/workflows/ci-shared.yml)
+
 # Shared
 
 Tools for devs to build.
@@ -46,24 +48,6 @@ Host github.com-userXXX
  
 ```
 
-## Now you can use the shared tools
-
-Start with the git tooling ..
-
-Fork this repo or any other, and then...
-
-- To see how a repo is configured:
-	- ``` make gitr-print ```
-
-- To setup a forked repo automatically:
-	- ``` make gitr-fork-setup ```
-
-- To catchup a forked repo to Origin:
-	- ``` make gitr-fork-catchup ```
-
-- To commit changes to a forked repo:
-	- ``` make M='commit message' gitr-fork-all ```
-
 
 ## Now you can build any of the code
 
@@ -72,24 +56,18 @@ All the code in all the repos does lots of code gen and so you need our tools to
 Every repo including this one follows the same pattern with:
 
 - To Build everything:
-	- ``` make this-all ```
+	- ``` make all ```
 
-- To see the status:
-	- ``` make this-print ```
-
-- To install all our tools:
-	- ``` make this-dep ```
-
+- To see the infos:
+	- ``` make print ```
 
 - To install all our tools:
-	- ``` make this-dep ```
+	- ``` make dep ```
+
 
 ## CI
 
 The github actions just call the make files, so that you can run CI locally, and not go nuts 2nd guessing what the github actions are doing...
 
 - To Build everything:
-	- ``` make this-all ```
-
-- To Release everything:
-	- ``` make this-release ```
+	- ``` make all ```
