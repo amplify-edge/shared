@@ -1,4 +1,5 @@
 # https://github.com/go-flutter-desktop/hover
+# this is bad practice as we have no control over hugo's version to use.
 
 # includes
 SHARED_FSPATH=./../../includes

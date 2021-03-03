@@ -1,4 +1,6 @@
 # Don't use too many makefiles variables it's confusing.
+# Build is not install
+# Just strive to be as minimal as you can, a.k.a. no external dependencies (external build tools, includes, etc please).
 BOILERPLATE_FSPATH=../includes
 
 include $(BOILERPLATE_FSPATH)/help.mk
@@ -12,6 +14,9 @@ print:
 ## Build all tools
 build:
 	@echo -- TOOLS - BUILD ALL: start --
+
+	@echo Crypt
+	cd ./bs-crypt && $(MAKE) build
 
 	@echo Dummy
 	cd ./bs-dummy && $(MAKE) build
@@ -34,6 +39,9 @@ build-clean:
 	@echo Dummy
 	cd ./bs-dummy && $(MAKE) build-clean
 
+	@echo Crypt
+	cd ./bs-crypt && $(MAKE) build-clean
+
 	@echo Lang
 	cd ./bs-lang && $(MAKE) build-clean
 
@@ -53,6 +61,9 @@ test:
 
 	@echo Dummy
 	cd ./bs-dummy && $(MAKE) test
+
+	@echo Crypt
+	cd ./bs-crypt && $(MAKE) test
 
 	@echo Lang
 	cd ./bs-lang && $(MAKE) test
