@@ -24,12 +24,6 @@ build:
 	@echo Lang
 	cd ./bs-lang && $(MAKE) build
 
-	@echo Hover
-	cd ./bs-hover && $(MAKE) build
-
-	@echo Hugo
-	cd ./bs-hugo && $(MAKE) build
-
 	@echo -- TOOLS - BUILD ALL: finish --
 
 ## Clean the build
@@ -44,12 +38,6 @@ build-clean:
 
 	@echo Lang
 	cd ./bs-lang && $(MAKE) build-clean
-
-	@echo Hover
-	cd ./bs-hover && $(MAKE) build-clean
-
-	@echo Hugo
-	cd ./bs-hugo && $(MAKE) build-clean
 
 	# -- PLUS ALL OTHER TOOLS !!
 
@@ -67,12 +55,6 @@ test:
 
 	@echo Lang
 	cd ./bs-lang && $(MAKE) test
-
-	@echo Hover
-	cd ./bs-hover && $(MAKE) test
-
-	@echo Hugo
-	cd ./bs-hugo && $(MAKE) test
 
 	@echo -- TOOLS - TEST ALL: finish --
 
