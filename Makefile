@@ -23,12 +23,12 @@ all: print dep build print-end
 
 print:
 	@echo
-	@echo -- SHARED REPO : start --
+	@echo -- SHARED REPO START--
 	@echo
 
 print-end:
 	@echo
-	@echo -- SHARED REPO ; end --
+	@echo -- SHARED REPO END --
 	@echo
 
 ## Print all settings
