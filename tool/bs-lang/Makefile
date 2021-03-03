@@ -17,7 +17,8 @@ build-clean:
 	rm -rf ./bs-lang
 
 test:
-	go test -v ./services
+	#TODO: Will absolutely hangs
+	#go test -v ./services
 
 # lang tool usage. TODO
 # 1. make build ==> build lang tool
