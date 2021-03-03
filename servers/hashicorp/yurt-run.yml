@@ -1,7 +1,0 @@
-data_dir: "/var/yurt"
-tls: false
-network_cidr: "" # derived from first consul_server_ips, assumed to be a /24
-consul_server_ips: [] # REQUIRED
-consul_bin: "/opt/yurt/bin/consul-$goos-$goarch-$version"
-nomad_bin: "/opt/yurt/bin/nomad-$goos-$goarch-$version"
-ca_cert_file: "/var/yurt/ca.pem"
