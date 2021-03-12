@@ -1,0 +1,8 @@
+cred.json
+credentials.json
+/config.json
+/client_secret.json
+/oauth2_credentials.json
+/lib/gsheets/testdata/secret.json
+/lib/gsheets/testdata/config.json
+/client_secret_ubuntu.json
