@@ -1,0 +1,12 @@
+{
+  "hello": [
+    {
+      "lang_code": "en",
+      "trans": "hello"
+    },
+    {
+      "lang_code": "es",
+      "trans": "hola"
+    }
+  ]
+}

@@ -114,6 +114,9 @@ func tomlFiles(csvFileContent [][]string, config config.Config, cleanTagsDir, cl
 				if i, ok := cache[utils.CleanKey(sp[0])]; ok {
 
 					val := []string{sp2[1], cleanedData}
+					if languages == nil {
+						languages = []TomlFormat{}
+					}
 					languages[i].Values = append(languages[i].Values, val)
 					continue
 				}

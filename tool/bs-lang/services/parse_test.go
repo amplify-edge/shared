@@ -1,6 +1,7 @@
 package services_test
 
 import (
+	"github.com/stretchr/testify/require"
 	"io/ioutil"
 	"testing"
 
@@ -235,6 +236,7 @@ func TestTranslate(t *testing.T) {
 		t.Fatalf("\t%s\tShould be able to write data file to /tmp: %v", failed, err)
 	}
 	t.Run("Test Multi Languages Files From Template", testGenerateMultiLanguageFilesFromTemplate)
+	t.Run("Test Find Translation from local cache", testFindTransKey)
 }
 
 func testGenerateMultiLanguageFilesFromTemplate(t *testing.T) {
@@ -258,4 +260,16 @@ func testGenerateMultiLanguageFilesFromTemplate(t *testing.T) {
 		t.Logf("\t%s\tShould be able to write translated output files to /tmp",
 			success)
 	}
+}
+
+func testFindTransKey(t *testing.T) {
+	res, err := services.FindTransFromCache("./testdata/cache.json", "hello", "es")
+	require.NoError(t, err)
+	require.Equal(t, "hola", res)
+
+	exists := services.CacheExists("./testdata/cache.json", "hello")
+	require.Equal(t, true, exists)
+
+	exists = services.CacheExists("./testdata/cache.json", "hola")
+	require.Equal(t, false, exists)
 }
