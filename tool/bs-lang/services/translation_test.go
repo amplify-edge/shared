@@ -247,7 +247,7 @@ func testGetTemplateWords(t *testing.T) {
 		}
 
 		translated, err = getTemplateWords(
-			m, 3*time.Second, 3, []string{"en", "fr", "de", "it", "ur"},
+			m, 3*time.Second, 3, []string{"en", "fr", "de", "it", "ur", "tr"},
 			"./testdata/cache.json",
 		)
 		if err != nil {

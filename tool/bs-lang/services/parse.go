@@ -62,32 +62,34 @@ func getCacheContent(jsonCachePath string) ([]byte, error) {
 	return data, nil
 }
 
-// FindTrans finds a translation from cache file
-// it takes raw byte slice or filepath to json / arb cache
-func FindTransFromCache(jsonCachePath, key, language string) (string, error) {
-
-	_, res, err := findCacheContent(jsonCachePath, key, nil)
-
+func unmarshalTrans(res, key, lang string) (string, error) {
 	var tl []translation
 
-	if err = json.Unmarshal([]byte(res), &tl); err != nil {
+	if err := json.Unmarshal([]byte(res), &tl); err != nil {
 		return "", errors.New("error unmarshaling available translations")
 	}
 
 	for _, t := range tl {
-		if t.LangCode == language {
+		if t.LangCode == lang {
 			return t.Trans, nil
 		}
 	}
-	return "", errors.New("no translations found for " + key + " and " + language)
+	return "", errors.New("no translations found for " + key + " and " + lang)
+
+}
+
+// FindTrans finds a translation from cache file
+// it takes raw byte slice or filepath to json / arb cache
+func FindTransFromCache(jsonCachePath, key, language string) (string, error) {
+	_, res, err := findCacheContent(jsonCachePath, key, nil)
+	if err != nil {
+		return "", err
+	}
+	return unmarshalTrans(res, key, language)
 }
 
 // AddToCache adds translation to cache
-// we don't check for duplicates, nor we will.
 func AddToCache(jsonCachePath, k, language, translated string) error {
-	//var encodedKey bytes.Buffer
-	//json.HTMLEscape(&encodedKey, []byte(k))
-	//key := encodedKey.String()
 	key := escapeWord(k)
 	data, res, err := findCacheContent(jsonCachePath, key, nil)
 	if err != nil {
@@ -103,6 +105,11 @@ func AddToCache(jsonCachePath, k, language, translated string) error {
 		if err != nil {
 			return err
 		}
+	}
+	// don't write to cache if it already exists
+	tl, _ := unmarshalTrans(res, key, language)
+	if tl != "" {
+		return nil
 	}
 	data, err = sjson.SetBytes(data, key+".-1", translation{
 		LangCode: language,
@@ -126,7 +133,7 @@ func findCacheContent(cachePath, k string, data []byte) ([]byte, string, error) 
 	//json.HTMLEscape(&encodedKey, []byte(k))
 	//key := encodedKey.String()
 	key := escapeWord(k)
-	value := gjson.Get(string(data), key)
+	value := gjson.GetBytes(data, key)
 	return data, value.String(), nil
 }
 
