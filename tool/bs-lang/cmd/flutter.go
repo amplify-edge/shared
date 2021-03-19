@@ -15,6 +15,7 @@ var (
 	prefixName *string
 	languages  *string
 	full       *bool
+	cacheFile  *string
 )
 
 // flutterCmd represents the flutter command
@@ -27,7 +28,7 @@ var flutterCmd = &cobra.Command{
 		if *template == "" {
 			return services.GenerateMultiLanguagesArbFilesFromJSONFiles(*dir, *prefixName, "json", "arb", *full)
 		}
-		return services.GenerateMultiLanguageFilesFromTemplate(*template, *dir, *prefixName, "json", getLanguages(*languages, ","), *full)
+		return services.GenerateMultiLanguageFilesFromTemplate(*template, *dir, *prefixName, "json", getLanguages(*languages, ","), *full, cacheFile)
 	},
 }
 
