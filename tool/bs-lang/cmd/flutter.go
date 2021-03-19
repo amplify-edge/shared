@@ -28,7 +28,7 @@ var flutterCmd = &cobra.Command{
 		if *template == "" {
 			return services.GenerateMultiLanguagesArbFilesFromJSONFiles(*dir, *prefixName, "json", "arb", *full)
 		}
-		return services.GenerateMultiLanguageFilesFromTemplate(*template, *dir, *prefixName, "json", getLanguages(*languages, ","), *full, cacheFile)
+		return services.GenerateMultiLanguageFilesFromTemplate(*template, *dir, *prefixName, "json", getLanguages(*languages, ","), *full, *cacheFile)
 	},
 }
 
