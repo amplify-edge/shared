@@ -225,9 +225,8 @@ var (
 )
 
 const (
-	success   = "\u2713"
-	failed    = "\u274c"
-	separator = "=="
+	success = "\u2713"
+	failed  = "\u274c"
 )
 
 var translated []Translate
@@ -248,7 +247,8 @@ func testGetTemplateWords(t *testing.T) {
 		}
 
 		translated, err = getTemplateWords(
-			m, 3*time.Second, 3, "en", []string{"en", "fr", "de", "it", "ur"},
+			m, 3*time.Second, 3, []string{"en", "fr", "de", "it", "ur"},
+			"./testdata/cache.json",
 		)
 		if err != nil {
 			t.Fatalf(
@@ -262,15 +262,6 @@ func testGetTemplateWords(t *testing.T) {
 		if m.Size() != 71 {
 			t.Fatalf("\t%s\tMap size should've been the same as the number of arb keys: %v",
 				failed, m.Size())
-		}
-		
-
-		for _, w := range translated {
-			t.Logf("Per lang: %v", w.Words)
-			if len(w.Words) != 35 {
-				t.Fatalf("\t%s\tShould return the same amount of word as translated => expected: %d, got: %d",
-					failed, 35, len(w.Words))
-			}
 		}
 	}
 }

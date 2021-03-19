@@ -12,10 +12,10 @@ import (
 	"strings"
 
 	"github.com/emirpasic/gods/maps/linkedhashmap"
-	"go.amplifyedge.org/shared-v2/tool/bs-lang/services/config"
-	"go.amplifyedge.org/shared-v2/tool/bs-lang/utils"
 	"github.com/pkg/errors"
 	"github.com/tidwall/pretty"
+	"go.amplifyedge.org/shared-v2/tool/bs-lang/services/config"
+	"go.amplifyedge.org/shared-v2/tool/bs-lang/utils"
 )
 
 // WriteDataDumpFiles exported
@@ -92,10 +92,7 @@ func WriteDataDumpFiles(csvFilePath string, jsonDirPath string, sheet string) er
 
 func writeOutFile(data, outFilePath string) error {
 
-	file, err := os.OpenFile(outFilePath, os.O_WRONLY|os.O_CREATE, 0777)
-
-	defer file.Close()
-
+	file, err := os.OpenFile(outFilePath, os.O_WRONLY|os.O_CREATE, 0755)
 	if err != nil {
 		return err
 	}
@@ -112,7 +109,8 @@ func writeOutFile(data, outFilePath string) error {
 	if err != nil {
 		return fmt.Errorf("Cannot write to file: %v", err)
 	}
-	return nil
+
+	return file.Close()
 }
 
 // WriteLanguageFiles exported
@@ -260,13 +258,17 @@ func GenerateMultiLanguagesArbFilesFromJSONFiles(dir, prefix, extFile, outExtFil
 				} else {
 
 					f, err := os.Create(outDir)
-					defer f.Close()
-
 					if err != nil {
 						return err
 					}
-
-					f.Write(data)
+					_, err = f.Write(data)
+					if err != nil {
+						return err
+					}
+					err = f.Close()
+					if err != nil {
+						return err
+					}
 				}
 
 			}
@@ -286,7 +288,7 @@ func GenerateMultiLanguagesArbFilesFromJSONFiles(dir, prefix, extFile, outExtFil
 // }
 
 // GenerateMultiLanguageFilesFromTemplate write multilanguage json files
-func GenerateMultiLanguageFilesFromTemplate(templatePath, outPath, fileName, ext string, languages []string, full bool) error {
+func GenerateMultiLanguageFilesFromTemplate(templatePath, outPath, fileName, ext string, languages []string, full bool, cachePath string) error {
 
 	data, err := ioutil.ReadFile(templatePath)
 	if err != nil {
@@ -299,7 +301,7 @@ func GenerateMultiLanguageFilesFromTemplate(templatePath, outPath, fileName, ext
 		return err
 	}
 
-	wordsTranslated, err := getTemplateWords(m, config.TranslateTimeout, 3, "en", languages)
+	wordsTranslated, err := getTemplateWords(m, config.TranslateTimeout, 3, languages, cachePath)
 	if err != nil {
 		return err
 	}
@@ -339,8 +341,12 @@ func getPath(dirPath, fileName, ext string) string {
 }
 
 func getFileNameAndExtension(fileName string) (name string, ext string) {
-	s := strings.Split(fileName, ".")
-	name = s[0]
-	ext = s[len(s)-1]
+	// extension
+	origExt := filepath.Ext(fileName)
+	if origExt != "" {
+		ext = origExt[1:] // removes the '.'
+	}
+	// get the filename
+	name = strings.TrimSuffix(fileName, ext)
 	return
 }
