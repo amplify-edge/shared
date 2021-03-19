@@ -237,6 +237,7 @@ func TestTranslate(t *testing.T) {
 	}
 	t.Run("Test Multi Languages Files From Template", testGenerateMultiLanguageFilesFromTemplate)
 	t.Run("Test Find Translation from local cache", testFindTransKey)
+	t.Run("Test Add Translation to local cache", testAddCache)
 }
 
 func testGenerateMultiLanguageFilesFromTemplate(t *testing.T) {
@@ -249,6 +250,7 @@ func testGenerateMultiLanguageFilesFromTemplate(t *testing.T) {
 			".json",
 			[]string{"fr", "es", "de", "it", "ur"},
 			false,
+			"./testdata/cache.json",
 		)
 		if err != nil {
 			t.Fatalf(
@@ -263,13 +265,23 @@ func testGenerateMultiLanguageFilesFromTemplate(t *testing.T) {
 }
 
 func testFindTransKey(t *testing.T) {
-	res, err := services.FindTransFromCache("./testdata/cache.json", "hello", "es")
+	res, err := services.FindTransFromCache("./testdata/cache2.json", "hello", "es")
 	require.NoError(t, err)
 	require.Equal(t, "hola", res)
 
-	exists := services.CacheExists("./testdata/cache.json", "hello")
+	exists := services.CacheExists("./testdata/cache2.json", "hello")
 	require.Equal(t, true, exists)
 
-	exists = services.CacheExists("./testdata/cache.json", "hola")
+	exists = services.CacheExists("./testdata/cache2.json", "hola")
 	require.Equal(t, false, exists)
+}
+
+func testAddCache(t *testing.T) {
+	// test existing
+	//err := services.AddToCache("./testdata/cache2.json", "hello", "de", "hallo")
+	//require.NoError(t, err)
+
+	// test non existing
+	err := services.AddToCache("./testdata/cache2.json", "How you doin?", "de", "wie geht's?")
+	require.NoError(t, err)
 }

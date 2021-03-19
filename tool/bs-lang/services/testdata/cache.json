@@ -8,5 +8,972 @@
       "lang_code": "es",
       "trans": "hola"
     }
+  ],
+  "bye": [
+    {
+      "lang_code": "en",
+      "trans": "bye"
+    },
+    {
+      "lang_code": "de",
+      "trans": "tschüss"
+    }
+  ],
+  "Country Road Take Me Home To The Place I Belong West Virginia Country Mama Take me home country road": [
+    {
+      "lang_code": "en",
+      "trans": "Country Road Take Me Home To The Place I Belong West Virginia Country Mama Take me home country road"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Country Road Take Me Home To The Place I Belong West Virginia Country Mama Take me home country road"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Country Road Take Me Home To The Place I Belong West Virginia Country Mama Take me home country road"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Landstraße Bring mich nach Hause zu dem Ort, zu dem ich gehöre West Virginia Land Mama Bring mich nach Hause Landstraße"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Country Road Portami a casa nel posto a cui appartengo West Virginia Country Mama Portami a casa in campagna"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "کنٹری روڈ مجھے اس جگہ پر گھر لے جائیے I کا تعلق ویسٹ ورجینیا کنٹری ماما مجھے گھر کے راستے میں لے جانا"
+    }
+  ],
+  "New Country Selected": [
+    {
+      "lang_code": "en",
+      "trans": "New Country Selected"
+    },
+    {
+      "lang_code": "en",
+      "trans": "New Country Selected"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Nouveau pays sélectionné"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Neues Land ausgewählt"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Nuovo paese selezionato"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "نیا ملک منتخب ہوا"
+    }
+  ],
+  "Zip Code": [
+    {
+      "lang_code": "en",
+      "trans": "Zip Code"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Zip Code"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Code postal"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Postleitzahl"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Cap"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "زپ کوڈ"
+    }
+  ],
+  "Category": [
+    {
+      "lang_code": "en",
+      "trans": "Category"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Category"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Catégorie"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Kategorie"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Categoria"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "قسم"
+    }
+  ],
+  "Campaign Name": [
+    {
+      "lang_code": "en",
+      "trans": "Campaign Name"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Campaign Name"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Nom de la campagne"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Kampagnenname"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Nome della campagna"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "مہم کا نام"
+    }
+  ],
+  "No Campaigns": [
+    {
+      "lang_code": "en",
+      "trans": "No Campaigns"
+    },
+    {
+      "lang_code": "en",
+      "trans": "No Campaigns"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Aucune campagne"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Keine Kampagnen"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Nessuna campagna"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "کوئی مہمات نہیں"
+    }
+  ],
+  "Type of Action": [
+    {
+      "lang_code": "en",
+      "trans": "Type of Action"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Type of Action"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Type d\u0026#39;action"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Art der Aktion"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Tipo di azione"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "عمل کی قسم"
+    }
+  ],
+  "Action Location": [
+    {
+      "lang_code": "en",
+      "trans": "Action Location"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Action Location"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Emplacement de l\u0026#39;action"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Aktionsort"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Posizione dell\u0026#39;azione"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "ایکشن لوکیشن"
+    }
+  ],
+  "Time": [
+    {
+      "lang_code": "en",
+      "trans": "Time"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Time"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Temps"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Zeit"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Tempo"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "وقت"
+    }
+  ],
+  "Length of the Action": [
+    {
+      "lang_code": "en",
+      "trans": "Length of the Action"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Length of the Action"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Durée de l\u0026#39;action"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Dauer der Aktion"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Durata dell\u0026#39;azione"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "ایکشن کی لمبائی"
+    }
+  ],
+  "Goal": [
+    {
+      "lang_code": "en",
+      "trans": "Goal"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Goal"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Objectif"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Tor"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Obbiettivo"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "مقصد"
+    }
+  ],
+  "Strategy": [
+    {
+      "lang_code": "en",
+      "trans": "Strategy"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Strategy"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Stratégie"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Strategie"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Strategia"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "حکمت عملی"
+    }
+  ],
+  "Historical Precedents": [
+    {
+      "lang_code": "en",
+      "trans": "Historical Precedents"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Historical Precedents"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Précédents historiques"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Historische Präzedenzfälle"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Precedenti storici"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "تاریخی نظیر"
+    }
+  ],
+  "People already pledged": [
+    {
+      "lang_code": "en",
+      "trans": "People already pledged"
+    },
+    {
+      "lang_code": "en",
+      "trans": "People already pledged"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Les gens se sont déjà engagés"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Die Leute haben bereits zugesagt"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Le persone si sono già impegnate"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "لوگوں نے پہلے ہی وعدہ کیا تھا"
+    }
+  ],
+  "We Need": [
+    {
+      "lang_code": "en",
+      "trans": "We Need"
+    },
+    {
+      "lang_code": "en",
+      "trans": "We Need"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Nous avons besoin"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Wir brauchen"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Abbiamo bisogno"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "ہمیں ضرورت ہے"
+    }
+  ],
+  "The following figures are extrapolated from similar past actions that both succeeded and failed": [
+    {
+      "lang_code": "en",
+      "trans": "The following figures are extrapolated from similar past actions that both succeeded and failed"
+    },
+    {
+      "lang_code": "en",
+      "trans": "The following figures are extrapolated from similar past actions that both succeeded and failed"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Les chiffres suivants sont extrapolés à partir d\u0026#39;actions antérieures similaires qui ont réussi et échoué"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Die folgenden Zahlen wurden aus ähnlichen früheren Aktionen extrapoliert, die sowohl erfolgreich waren als auch fehlgeschlagen sind"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Le cifre seguenti sono estrapolate da azioni passate simili che sono riuscite e non sono riuscite"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "مندرجہ ذیل اعداد و شمار ماضی کی اسی طرح کی کارروائیوں سے مایوس کن ہیں جو کامیاب اور ناکام رہے"
+    }
+  ],
+  "Pioneers needed to start": [
+    {
+      "lang_code": "en",
+      "trans": "Pioneers needed to start"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Pioneers needed to start"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Les pionniers devaient commencer"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Pioniere mussten anfangen"
+    },
+    {
+      "lang_code": "it",
+      "trans": "I pionieri dovevano iniziare"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "سرخیلوں کو شروع کرنے کی ضرورت ہے"
+    }
+  ],
+  "Rebels needed to trigger media": [
+    {
+      "lang_code": "en",
+      "trans": "Rebels needed to trigger media"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Rebels needed to trigger media"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Les rebelles nécessaires pour déclencher les médias"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Rebellen, die zum Auslösen von Medien benötigt werden"
+    },
+    {
+      "lang_code": "it",
+      "trans": "I ribelli dovevano innescare i media"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "میڈیا کو متحرک کرنے کے لئے باغیوں کی ضرورت ہے"
+    }
+  ],
+  "Rebels needed to win": [
+    {
+      "lang_code": "en",
+      "trans": "Rebels needed to win"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Rebels needed to win"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Les rebelles avaient besoin de gagner"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Rebellen mussten gewinnen"
+    },
+    {
+      "lang_code": "it",
+      "trans": "I ribelli dovevano vincere"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "باغیوں کو جیتنے کی ضرورت ہے"
+    }
+  ],
+  "Contact Details": [
+    {
+      "lang_code": "en",
+      "trans": "Contact Details"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Contact Details"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Détails du contact"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Kontaktdetails"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Dettagli del contatto"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "رابطہ کی تفصیلات"
+    }
+  ],
+  "Not Ready": [
+    {
+      "lang_code": "en",
+      "trans": "Not Ready"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Not Ready"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Pas prêt"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Nicht bereit"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Non pronto"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "تیار نہیں"
+    }
+  ],
+  "Ready": [
+    {
+      "lang_code": "en",
+      "trans": "Ready"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Ready"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Prêt"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Bereit"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Pronto"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "تیار"
+    }
+  ],
+  "Select Campaign": [
+    {
+      "lang_code": "en",
+      "trans": "Select Campaign"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Select Campaign"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Sélectionnez la campagne"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Wählen Sie Kampagne"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Seleziona Campagna"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "مہم کا انتخاب کریں"
+    }
+  ],
+  "Campaign Details": [
+    {
+      "lang_code": "en",
+      "trans": "Campaign Details"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Campaign Details"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Détails de la campagne"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Kampagnendetails"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Dettagli della campagna"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "مہم کی تفصیلات"
+    }
+  ],
+  "Search Campaigns": [
+    {
+      "lang_code": "en",
+      "trans": "Search Campaigns"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Search Campaigns"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Campagnes de recherche"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Kampagnen durchsuchen"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Campagne di ricerca"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "مہمات تلاش کریں"
+    }
+  ],
+  "Your Needs": [
+    {
+      "lang_code": "en",
+      "trans": "Your Needs"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Your Needs"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Vos besoins"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Deine Bedürfnisse"
+    },
+    {
+      "lang_code": "it",
+      "trans": "I tuoi bisogni"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "آپ کی ضروریات"
+    }
+  ],
+  "Please choose as many supports or needs you need satisfied to join the action": [[
+      {
+        "lang_code": "en",
+        "trans": "Please choose as many supports or needs you need satisfied to join the action."
+      }
+    ],[
+      {
+        "lang_code": "en",
+        "trans": "Please choose as many supports or needs you need satisfied to join the action."
+      }
+    ],[
+      {
+        "lang_code": "en",
+        "trans": "Please choose as many supports or needs you need satisfied to join the action."
+      }
+    ],[
+      {
+        "lang_code": "fr",
+        "trans": "Veuillez choisir autant de supports ou de besoins dont vous avez besoin pour rejoindre l\u0026#39;action."
+      }
+    ],[
+      {
+        "lang_code": "en",
+        "trans": "Please choose as many supports or needs you need satisfied to join the action."
+      }
+    ],[
+      {
+        "lang_code": "de",
+        "trans": "Bitte wählen Sie so viele Unterstützungen oder Bedürfnisse aus, wie Sie benötigen, um an der Aktion teilzunehmen."
+      }
+    ],[
+      {
+        "lang_code": "en",
+        "trans": "Please choose as many supports or needs you need satisfied to join the action."
+      }
+    ],[
+      {
+        "lang_code": "it",
+        "trans": "Scegli tutti i supporti o le esigenze di cui hai bisogno per partecipare all\u0026#39;azione."
+      }
+    ],[
+      {
+        "lang_code": "en",
+        "trans": "Please choose as many supports or needs you need satisfied to join the action."
+      }
+    ],[
+      {
+        "lang_code": "ur",
+        "trans": "براہ کرم زیادہ سے زیادہ حمایت یا ضرورت کو منتخب کریں تاکہ آپ کو اس عمل میں شامل ہونے کے لئے مطمئن درکار ہو۔"
+      }
+    ],[
+      {
+        "lang_code": "en",
+        "trans": "Please choose as many supports or needs you need satisfied to join the action."
+      }
+    ],[
+      {
+        "lang_code": "en",
+        "trans": "Please choose as many supports or needs you need satisfied to join the action."
+      }
+    ],[
+      {
+        "lang_code": "en",
+        "trans": "Please choose as many supports or needs you need satisfied to join the action."
+      }
+    ],[
+      {
+        "lang_code": "fr",
+        "trans": "Veuillez choisir autant de supports ou de besoins dont vous avez besoin pour rejoindre l\u0026#39;action."
+      }
+    ],[
+      {
+        "lang_code": "en",
+        "trans": "Please choose as many supports or needs you need satisfied to join the action."
+      }
+    ],[
+      {
+        "lang_code": "de",
+        "trans": "Bitte wählen Sie so viele Unterstützungen oder Bedürfnisse aus, wie Sie benötigen, um an der Aktion teilzunehmen."
+      }
+    ],[
+      {
+        "lang_code": "en",
+        "trans": "Please choose as many supports or needs you need satisfied to join the action."
+      }
+    ],[
+      {
+        "lang_code": "it",
+        "trans": "Scegli tutti i supporti o le esigenze di cui hai bisogno per partecipare all\u0026#39;azione."
+      }
+    ],[
+      {
+        "lang_code": "en",
+        "trans": "Please choose as many supports or needs you need satisfied to join the action."
+      }
+    ],[
+      {
+        "lang_code": "ur",
+        "trans": "براہ کرم زیادہ سے زیادہ حمایت یا ضرورت کو منتخب کریں تاکہ آپ کو اس عمل میں شامل ہونے کے لئے مطمئن درکار ہو۔"
+      }
+    ],[
+      {
+        "lang_code": "en",
+        "trans": "Please choose as many supports or needs you need satisfied to join the action."
+      }
+    ],[
+      {
+        "lang_code": "en",
+        "trans": "Please choose as many supports or needs you need satisfied to join the action."
+      }
+    ],[
+      {
+        "lang_code": "en",
+        "trans": "Please choose as many supports or needs you need satisfied to join the action."
+      }
+    ],[
+      {
+        "lang_code": "fr",
+        "trans": "Veuillez choisir autant de supports ou de besoins dont vous avez besoin pour rejoindre l\u0026#39;action."
+      }
+    ],[
+      {
+        "lang_code": "en",
+        "trans": "Please choose as many supports or needs you need satisfied to join the action."
+      }
+    ],[
+      {
+        "lang_code": "de",
+        "trans": "Bitte wählen Sie so viele Unterstützungen oder Bedürfnisse aus, wie Sie benötigen, um an der Aktion teilzunehmen."
+      }
+    ],[
+      {
+        "lang_code": "en",
+        "trans": "Please choose as many supports or needs you need satisfied to join the action."
+      }
+    ],[
+      {
+        "lang_code": "it",
+        "trans": "Scegli tutti i supporti o le esigenze di cui hai bisogno per partecipare all\u0026#39;azione."
+      }
+    ],[
+      {
+        "lang_code": "en",
+        "trans": "Please choose as many supports or needs you need satisfied to join the action."
+      }
+    ],[
+      {
+        "lang_code": "ur",
+        "trans": "براہ کرم زیادہ سے زیادہ حمایت یا ضرورت کو منتخب کریں تاکہ آپ کو اس عمل میں شامل ہونے کے لئے مطمئن درکار ہو۔"
+      }
+    ],[{"lang_code":"en","trans":"Please choose as many supports or needs you need satisfied to join the action."}],[{"lang_code":"fr","trans":"\"Veuillez choisir autant de supports ou de besoins dont vous avez besoin pour rejoindre l'action.\""}],[{"lang_code":"en","trans":"Please choose as many supports or needs you need satisfied to join the action."}],[{"lang_code":"de","trans":"\"Bitte wählen Sie so viele Unterstützungen oder Bedürfnisse aus, wie Sie benötigen, um an der Aktion teilzunehmen.\""}],[{"lang_code":"en","trans":"Please choose as many supports or needs you need satisfied to join the action."}],[{"lang_code":"it","trans":"\"Scegli tutti i supporti o le esigenze di cui hai bisogno per partecipare all'azione.\""}],[{"lang_code":"en","trans":"Please choose as many supports or needs you need satisfied to join the action."}],[{"lang_code":"ur","trans":"\"براہ کرم اس عمل میں شامل ہونے کے ل as زیادہ سے زیادہ سپورٹ یا ضروریات کا انتخاب کریں جو آپ کو مطمئن درکار ہیں۔\""}],[{"lang_code":"en","trans":"Please choose as many supports or needs you need satisfied to join the action."}],[{"lang_code":"fr","trans":"\"Veuillez choisir autant de supports ou de besoins dont vous avez besoin pour rejoindre l'action.\""}],[{"lang_code":"en","trans":"Please choose as many supports or needs you need satisfied to join the action."}],[{"lang_code":"de","trans":"\"Bitte wählen Sie so viele Unterstützungen oder Bedürfnisse aus, wie Sie benötigen, um an der Aktion teilzunehmen.\""}],[{"lang_code":"en","trans":"Please choose as many supports or needs you need satisfied to join the action."}],[{"lang_code":"it","trans":"\"Scegli tutti i supporti o le esigenze di cui hai bisogno per partecipare all'azione.\""}],[{"lang_code":"en","trans":"Please choose as many supports or needs you need satisfied to join the action."}],[{"lang_code":"ur","trans":"\"براہ کرم اس عمل میں شامل ہونے کے ل as زیادہ سے زیادہ سپورٹ یا ضروریات کا انتخاب کریں جو آپ کو مطمئن درکار ہیں۔\""}]],
+  "Next": [
+    {
+      "lang_code": "en",
+      "trans": "Next"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Next"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Suivant"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Nächster"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Il prossimo"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "اگلے"
+    }
+  ],
+  "Support Role": [
+    {
+      "lang_code": "en",
+      "trans": "Support Role"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Support Role"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Rôle de soutien"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Unterstützungsrolle"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Ruolo di supporto"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "سپورٹ رول"
+    }
+  ],
+  "Yes": [
+    {
+      "lang_code": "en",
+      "trans": "Yes"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Yes"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Oui"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Ja"
+    },
+    {
+      "lang_code": "it",
+      "trans": "sì"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "جی ہاں"
+    }
+  ],
+  "No": [
+    {
+      "lang_code": "en",
+      "trans": "No"
+    },
+    {
+      "lang_code": "en",
+      "trans": "No"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Non"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Nein"
+    },
+    {
+      "lang_code": "it",
+      "trans": "No"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "نہیں"
+    }
+  ],
+  "Support Roles": [
+    {
+      "lang_code": "en",
+      "trans": "Support Roles"
+    },
+    {
+      "lang_code": "en",
+      "trans": "Support Roles"
+    },
+    {
+      "lang_code": "fr",
+      "trans": "Rôles de soutien"
+    },
+    {
+      "lang_code": "de",
+      "trans": "Unterstützungsrollen"
+    },
+    {
+      "lang_code": "it",
+      "trans": "Ruoli di supporto"
+    },
+    {
+      "lang_code": "ur",
+      "trans": "معاون کردار"
+    }
   ]
-}
+,"Where are you?":[{"lang_code":"en","trans":"Where are you?"},{"lang_code":"ur","trans":"\"تم کہاں ہو\\\\؟\""}],"Backing/Endorsing Organizations":[{"lang_code":"en","trans":"Backing/Endorsing Organizations"},{"lang_code":"fr","trans":"\"Organisations de soutien / d'approbation\""},{"lang_code":"de","trans":"\"Organisationen unterstützen / unterstützen\""},{"lang_code":"it","trans":"\"Organizzazioni di sostegno / appoggio\""},{"lang_code":"ur","trans":"\"تنظیموں کی حمایت / توثیق\""}],"If we cannot satisfy your chosen conditions, would you consider providing a support role to those willing to go on strike?":[{"lang_code":"en","trans":"If we cannot satisfy your chosen conditions, would you consider providing a support role to those willing to go on strike?"},{"lang_code":"ur","trans":"\"اگر ہم آپ کے منتخب کردہ شرائط کو پورا نہیں کرسکتے ہیں ، تو کیا آپ ہڑتال پر جانے کے خواہشمند افراد کو معاون کردار فراہم کرنے پر غور کریں گے؟\""}]}

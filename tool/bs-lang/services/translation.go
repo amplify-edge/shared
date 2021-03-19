@@ -1,13 +1,18 @@
 package services
 
 import (
+	"context"
+	"fmt"
+	"github.com/tidwall/gjson"
+	"io/ioutil"
 	"log"
+	"os"
 	"strings"
 	"time"
 
-	tl "github.com/CatchZeng/google-translator/translator"
+	tl "cloud.google.com/go/translate/apiv3"
 	"github.com/emirpasic/gods/maps/linkedhashmap"
-	"golang.org/x/text/language"
+	translatepb "google.golang.org/genproto/googleapis/cloud/translate/v3"
 )
 
 // TranslatedMaps struct
@@ -30,27 +35,72 @@ type ArbAttr struct {
 	Placeholders map[string]string `json:"placeholders"`
 }
 
+func getGoogleProjectId() string {
+	credPath := os.Getenv("GOOGLE_APPLICATION_CREDENTIALS")
+	data, err := ioutil.ReadFile(credPath)
+	if err != nil {
+		log.Fatalf("error reading google credentials path, set it first via GOOGLE_APPLICATION_CREDENTIALS env var")
+	}
+	res := gjson.GetBytes(data, "project_id")
+	return fmt.Sprintf("projects/%s", res.String())
+}
+
 // translate a string from languages to language
-func getTemplateWords(m *linkedhashmap.Map, delay time.Duration, tries int, fromLang string, languages []string) ([]Translate, error) {
+func getTemplateWords(m *linkedhashmap.Map, delay time.Duration, tries int, languages []string, cacheFile string) ([]Translate, error) {
+	project := getGoogleProjectId()
+	ctx := context.Background()
+	tlClient, err := tl.NewTranslationClient(ctx)
+	if err != nil {
+		return nil, err
+	}
+	defer tlClient.Close()
 	words := getTranslateWords(m)
 	var wordsTranslated []Translate
 	for _, lang := range languages {
 		t := Translate{}
 		for _, w := range words {
-			out, err := tl.Translate(
-				w, language.MustParse(fromLang), language.MustParse(lang),
-			)
-			// out, err := gtranslate.TranslateWithParams(w,
-			// 	gtranslate.TranslationParams{
-			// 		From:  fromLang,
-			// 		To:    lang,
-			// 		Tries: tries,
-			// 		Delay: delay,
-			// 	})
-			if err != nil {
-				log.Printf("Error to translate from %s to %s\n", fromLang, lang)
+			// skip english
+			if lang == "en" {
+				continue
 			}
-			t.Words = append(t.Words, out)
+			esc := escapeWord(w)
+			// hit cache first
+			req := &translatepb.TranslateTextRequest{
+				Contents:           []string{fmt.Sprintf("%q", esc)},
+				MimeType:           "text/plain",
+				SourceLanguageCode: "en",
+				Parent:             project,
+				TargetLanguageCode: lang,
+			}
+			translated, err := FindTransFromCache(cacheFile, w, lang)
+			if err != nil {
+				// get translation from google
+				gtranslated, err := tlClient.TranslateText(ctx, req)
+				if err != nil {
+					// retry
+					var retryErr []error
+					for i := 0; i < tries; i++ {
+						time.Sleep(delay)
+						gtranslated, err = tlClient.TranslateText(ctx, req)
+						if err != nil {
+							retryErr = append(retryErr, err)
+						}
+					}
+					if len(retryErr) == tries {
+						return nil, err
+					}
+				}
+				if gtranslated != nil {
+					for _, v := range gtranslated.Translations {
+						translated = v.GetTranslatedText()
+						// Add it to cache
+						if err = AddToCache(cacheFile, w, lang, translated); err != nil {
+							return nil, err
+						}
+					}
+				}
+			}
+			t.Words = append(t.Words, translated)
 		}
 		t.Lang = lang
 		wordsTranslated = append(wordsTranslated, t)
