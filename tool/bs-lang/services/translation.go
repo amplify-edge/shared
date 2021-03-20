@@ -25,7 +25,7 @@ type TranslatedMaps struct {
 type Translate struct {
 	Lang string
 	// Words string
-	Words []string
+	Words map[string]string
 }
 
 // ArbAttr struct
@@ -45,66 +45,66 @@ func getGoogleProjectId() string {
 	return fmt.Sprintf("projects/%s", res.String())
 }
 
+func joinWords(words []string) string {
+	return strings.Join(words, "++")
+}
+
 // translate a string from languages to language
 func getTemplateWords(m *linkedhashmap.Map, delay time.Duration, tries int, languages []string, cacheFile string) ([]Translate, error) {
 	project := getGoogleProjectId()
 	ctx := context.Background()
+
+	initialWords := getTranslateWords(m)
+	var wordsTranslated []Translate
+
+	// google translate client
 	tlClient, err := tl.NewTranslationClient(ctx)
 	if err != nil {
 		return nil, err
 	}
-	defer tlClient.Close()
-	words := getTranslateWords(m)
-	var wordsTranslated []Translate
+
 	for _, lang := range languages {
-		t := Translate{}
-		for _, w := range words {
-			// skip english
-			if lang == "en" {
-				continue
-			}
-			esc := escapeWord(w)
-			// hit cache first
+		t := Translate{
+			Lang:  lang,
+			Words: map[string]string{},
+		}
+		if lang == "en" {
+			continue
+		}
+		untranslated, translated := findTransFromCache(cacheFile, lang, initialWords...)
+
+		for k, v := range translated {
+			t.Words[k] = v
+		}
+
+		if len(untranslated) > 0 {
+			var gtranslated *translatepb.TranslateTextResponse
 			req := &translatepb.TranslateTextRequest{
-				Contents:           []string{fmt.Sprintf("%q", esc)},
+				Contents:           untranslated,
 				MimeType:           "text/plain",
 				SourceLanguageCode: "en",
 				Parent:             project,
 				TargetLanguageCode: lang,
 			}
-			translated, err := FindTransFromCache(cacheFile, w, lang)
+
+			gtranslated, err = tlClient.TranslateText(ctx, req)
 			if err != nil {
-				// get translation from google
-				gtranslated, err := tlClient.TranslateText(ctx, req)
-				if err != nil {
-					// retry
-					var retryErr []error
-					for i := 0; i < tries; i++ {
-						time.Sleep(delay)
-						gtranslated, err = tlClient.TranslateText(ctx, req)
-						if err != nil {
-							retryErr = append(retryErr, err)
-						}
-					}
-					if len(retryErr) == tries {
+				return nil, err
+			}
+
+			if gtranslated != nil {
+				for i, v := range gtranslated.GetTranslations() {
+					t.Words[untranslated[i]] = v.GetTranslatedText()
+					if err = AddToCache(cacheFile, untranslated[i], lang, v.GetTranslatedText()); err != nil {
 						return nil, err
 					}
 				}
-				if gtranslated != nil {
-					for _, v := range gtranslated.Translations {
-						translated = v.GetTranslatedText()
-						// Add it to cache
-						if err = AddToCache(cacheFile, w, lang, translated); err != nil {
-							return nil, err
-						}
-					}
-				}
 			}
-			t.Words = append(t.Words, translated)
+
 		}
-		t.Lang = lang
 		wordsTranslated = append(wordsTranslated, t)
 	}
+	_ = tlClient.Close()
 	return wordsTranslated, nil
 }
 
@@ -118,7 +118,9 @@ func getTranslatedMaps(WordsTranslated []Translate, m *linkedhashmap.Map, full b
 		for it.Next() {
 			if !strings.HasPrefix(it.Key().(string), "@") {
 				if len(tr.Words) > i {
-					mapLang.Put(it.Key(), strings.TrimSpace(tr.Words[i]))
+					k := it.Value()
+					v := tr.Words[k.(string)]
+					mapLang.Put(it.Key(), strings.TrimSpace(v))
 					i++
 				}
 			} else if full {
