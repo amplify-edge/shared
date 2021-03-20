@@ -78,14 +78,28 @@ func unmarshalTrans(res, key, lang string) (string, error) {
 
 }
 
-// FindTrans finds a translation from cache file
-// it takes raw byte slice or filepath to json / arb cache
-func FindTransFromCache(jsonCachePath, key, language string) (string, error) {
-	_, res, err := findCacheContent(jsonCachePath, key, nil)
-	if err != nil {
-		return "", err
+// untranslatedCache returns untranslated slice of string, already translated ones from the cache, and error
+func findTransFromCache(jsonCachePath, language string, keys ...string) (untranslated []string, translated map[string]string) {
+	translated = map[string]string{}
+	for _, key := range keys {
+		key := key
+		_, res, err := findCacheContent(jsonCachePath, key, nil)
+		if err != nil {
+			untranslated = append(untranslated, key)
+			continue
+		}
+		tled, err := unmarshalTrans(res, key, language)
+		if err != nil {
+			untranslated = append(untranslated, key)
+			continue
+		}
+		if tled != "" {
+			translated[key] = tled
+		} else {
+			untranslated = append(untranslated, key)
+		}
 	}
-	return unmarshalTrans(res, key, language)
+	return untranslated, translated
 }
 
 // AddToCache adds translation to cache
@@ -129,9 +143,6 @@ func findCacheContent(cachePath, k string, data []byte) ([]byte, string, error) 
 			return nil, "", err
 		}
 	}
-	//var encodedKey bytes.Buffer
-	//json.HTMLEscape(&encodedKey, []byte(k))
-	//key := encodedKey.String()
 	key := escapeWord(k)
 	value := gjson.GetBytes(data, key)
 	return data, value.String(), nil

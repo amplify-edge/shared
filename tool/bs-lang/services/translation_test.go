@@ -247,7 +247,7 @@ func testGetTemplateWords(t *testing.T) {
 		}
 
 		translated, err = getTemplateWords(
-			m, 3*time.Second, 3, []string{"en", "fr", "de", "it", "ur", "tr"},
+			m, 3*time.Second, 3, []string{"en", "id"},
 			"./testdata/cache.json",
 		)
 		if err != nil {
@@ -256,25 +256,25 @@ func testGetTemplateWords(t *testing.T) {
 				failed, err,
 			)
 		}
-		t.Logf("\t%s\tShould be able to get translated words from google: %v",
-			success, translated)
 
 		if m.Size() != 71 {
 			t.Fatalf("\t%s\tMap size should've been the same as the number of arb keys: %v",
 				failed, m.Size())
 		}
+		t.Logf("\t%s\tm now is: %v\n", success, m)
 	}
 }
 
 func testGetTranslatedMaps(t *testing.T) {
 	t.Log("Tests mapping translated words back to map")
 	{
-		_, err := getTranslatedMaps(translated, m, true)
+		result, err := getTranslatedMaps(translated, m, true)
 		if err != nil {
 			t.Fatalf("\t%s\tShould be able to map translated words back to the linkedhashmap: %v",
 				failed, err)
 		}
 		t.Logf("\t%s\tShould be able to map translated words back to the linkedhashmap",
 			success)
+		t.Logf("\t%s\tResult: %v\n", success, result)
 	}
 }
