@@ -82,7 +82,6 @@ func unmarshalTrans(res, key, lang string) (string, error) {
 func findTransFromCache(jsonCachePath, language string, keys ...string) (untranslated []string, translated map[string]string) {
 	translated = map[string]string{}
 	for _, key := range keys {
-		key := key
 		_, res, err := findCacheContent(jsonCachePath, key, nil)
 		if err != nil {
 			untranslated = append(untranslated, key)
