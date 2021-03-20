@@ -12,6 +12,5 @@ require (
 	github.com/tidwall/gjson v1.6.8
 	github.com/tidwall/pretty v1.0.2
 	github.com/tidwall/sjson v1.1.5
-	golang.org/x/text v0.3.5
 	google.golang.org/genproto v0.0.0-20210310155132-4ce2db91004e
 )

@@ -290,6 +290,18 @@ func GenerateMultiLanguagesArbFilesFromJSONFiles(dir, prefix, extFile, outExtFil
 // GenerateMultiLanguageFilesFromTemplate write multilanguage json files
 func GenerateMultiLanguageFilesFromTemplate(templatePath, outPath, fileName, ext string, languages []string, full bool, cachePath string) error {
 
+	_, err := os.Stat(cachePath)
+	if err != nil {
+		defContent := map[string]interface{}{}
+		data, err := json.Marshal(&defContent)
+		if err != nil {
+			return err
+		}
+		if err = ioutil.WriteFile(cachePath, data, 0755); err != nil {
+			return err
+		}
+	}
+
 	data, err := ioutil.ReadFile(templatePath)
 	if err != nil {
 		return err
