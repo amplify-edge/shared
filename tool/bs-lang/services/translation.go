@@ -45,10 +45,6 @@ func getGoogleProjectId() string {
 	return fmt.Sprintf("projects/%s", res.String())
 }
 
-func joinWords(words []string) string {
-	return strings.Join(words, "++")
-}
-
 // translate a string from languages to language
 func getTemplateWords(m *linkedhashmap.Map, delay time.Duration, tries int, languages []string, cacheFile string) ([]Translate, error) {
 	project := getGoogleProjectId()
@@ -63,15 +59,25 @@ func getTemplateWords(m *linkedhashmap.Map, delay time.Duration, tries int, lang
 		return nil, err
 	}
 
+	detectLangReq := &translatepb.DetectLanguageRequest{
+		Parent:   project,
+		Source:   &translatepb.DetectLanguageRequest_Content{Content: initialWords[0]},
+		MimeType: "text/plain",
+	}
+
+	l, err := tlClient.DetectLanguage(ctx, detectLangReq)
+	if err != nil {
+		return nil, err
+	}
+
+	originLang := l.GetLanguages()[0].LanguageCode
+
 	for _, lang := range languages {
 		t := Translate{
 			Lang:  lang,
 			Words: map[string]string{},
 		}
-		if lang == "en" {
-			continue
-		}
-		untranslated, translated := findTransFromCache(cacheFile, lang, initialWords...)
+		untranslated, translated := findTransFromCache(cacheFile, originLang, lang, initialWords...)
 
 		for k, v := range translated {
 			t.Words[k] = v
@@ -82,7 +88,7 @@ func getTemplateWords(m *linkedhashmap.Map, delay time.Duration, tries int, lang
 			req := &translatepb.TranslateTextRequest{
 				Contents:           untranslated,
 				MimeType:           "text/plain",
-				SourceLanguageCode: "en",
+				SourceLanguageCode: originLang,
 				Parent:             project,
 				TargetLanguageCode: lang,
 			}
@@ -95,7 +101,7 @@ func getTemplateWords(m *linkedhashmap.Map, delay time.Duration, tries int, lang
 			if gtranslated != nil {
 				for i, v := range gtranslated.GetTranslations() {
 					t.Words[untranslated[i]] = v.GetTranslatedText()
-					if err = AddToCache(cacheFile, untranslated[i], lang, v.GetTranslatedText()); err != nil {
+					if err = AddToCache(cacheFile, untranslated[i], originLang, lang, v.GetTranslatedText()); err != nil {
 						return nil, err
 					}
 				}
