@@ -79,9 +79,14 @@ func unmarshalTrans(res, key, lang string) (string, error) {
 }
 
 // untranslatedCache returns untranslated slice of string, already translated ones from the cache, and error
-func findTransFromCache(jsonCachePath, language string, keys ...string) (untranslated []string, translated map[string]string) {
+func findTransFromCache(jsonCachePath, originLang, language string, keys ...string) (untranslated []string, translated map[string]string) {
 	translated = map[string]string{}
 	for _, key := range keys {
+		if language == originLang {
+			translated[key] = key
+			continue
+		}
+
 		_, res, err := findCacheContent(jsonCachePath, key, nil)
 		if err != nil {
 			untranslated = append(untranslated, key)
@@ -102,7 +107,7 @@ func findTransFromCache(jsonCachePath, language string, keys ...string) (untrans
 }
 
 // AddToCache adds translation to cache
-func AddToCache(jsonCachePath, k, language, translated string) error {
+func AddToCache(jsonCachePath, k, originLang, language, translated string) error {
 	key := escapeWord(k)
 	data, res, err := findCacheContent(jsonCachePath, key, nil)
 	if err != nil {
@@ -111,7 +116,7 @@ func AddToCache(jsonCachePath, k, language, translated string) error {
 	if res == "" {
 		data, err = sjson.SetBytes(data, key, []translation{
 			{
-				LangCode: "en",
+				LangCode: originLang,
 				Trans:    k,
 			},
 		})
