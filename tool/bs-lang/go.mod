@@ -9,8 +9,8 @@ require (
 	github.com/spf13/cobra v1.1.1
 	github.com/spf13/viper v1.7.0
 	github.com/stretchr/testify v1.6.1
-	github.com/tidwall/gjson v1.6.8
-	github.com/tidwall/pretty v1.0.2
+	github.com/tidwall/gjson v1.9.3
+	github.com/tidwall/pretty v1.2.0
 	github.com/tidwall/sjson v1.1.5
 	google.golang.org/genproto v0.0.0-20210310155132-4ce2db91004e
 )
